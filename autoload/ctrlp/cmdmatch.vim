@@ -38,7 +38,8 @@ function! ctrlp#cmdmatch#init(arg)
 endfunc
 
 function! ctrlp#cmdmatch#accept(mode, str)
-	echo a:str
+  call ctrlp#exit()
+	call feedkeys(':' . a:str)
 endfunction
 
 let s:id = g:ctrlp_builtins + len(g:ctrlp_ext_vars)
